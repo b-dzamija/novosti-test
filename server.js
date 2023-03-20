@@ -8,10 +8,20 @@ let dotenv = require('dotenv').config()
 
 // mongodb+srv://omarjeina23:l1t3vUrcMLnjGl94@cluster0.1bw4sim.mongodb.net/?retryWrites=true&w=majority
 
+// mongoose.connect(process.env.CONNECTION_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
+
 mongoose.connect(process.env.CONNECTION_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    family:4
 })
+    .then(() => {
+        console.log('FINE');
+    })
+    .catch(() => {
+        console.log("BAD");
+    })
 
 app.set("view engine", "ejs")
 
