@@ -34,4 +34,7 @@ app.get("/", async (req, res) => {
 
 app.use("/articles", articleRouter)
 
-app.listen(5000)
+var server = app.listen(process.env.PORT || 3000, function() {
+    console.log("app is running on port", server.address().port);
+});
+
